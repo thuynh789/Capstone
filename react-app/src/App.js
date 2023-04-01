@@ -27,6 +27,9 @@ function App() {
       {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
+          <Route>
+            <ErrorCat/>
+          </Route>
           <Route path="/" exact={true}>
             <LandingPage/>
           </Route>
