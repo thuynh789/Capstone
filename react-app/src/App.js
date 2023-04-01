@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
@@ -13,6 +13,7 @@ import Notes from "./components/Notes/Notes"
 import NoteDetails from "./components/Notes/NoteDetails";
 import NoteDetails2 from "./components/Notes/NoteDetails2";
 import ErrorCat from "./components/404Page/404Page";
+import ErrorCatProtected from "./components/404Page/404PageProtected";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,18 +23,19 @@ function App() {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+  const user = useSelector(state => state.session.user);
+
   return (
     <>
       {/* <Navigation isLoaded={isLoaded} /> */}
       {isLoaded && (
         <Switch>
-          <Route>
-            <ErrorCat/>
-          </Route>
           <Route path="/" exact={true}>
             <LandingPage/>
           </Route>
-
+          <Route>
+            <ErrorCatProtected/>
+          </Route>
           {/* <Route path="/login" >
             <LoginFormPage />
           </Route>
