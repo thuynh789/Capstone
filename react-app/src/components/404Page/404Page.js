@@ -18,7 +18,7 @@ export default function ErrorCat() {
                     <br />
                     Maybe my fluffy paws accidentally pressed a wrong button. 😿
                     <div className='redirect'>
-                        <Link to='/home'>Click here to return to Home</Link>
+                        <Link to='/home'>Click here to go back</Link>
                     </div>
 			    </div>
             </div>

@@ -13,7 +13,6 @@ import Notes from "./components/Notes/Notes"
 import NoteDetails from "./components/Notes/NoteDetails";
 import NoteDetails2 from "./components/Notes/NoteDetails2";
 import ErrorCat from "./components/404Page/404Page";
-import ErrorCatProtected from "./components/404Page/404PageProtected";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,8 +22,6 @@ function App() {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const user = useSelector(state => state.session.user);
-
   return (
     <>
       {/* <Navigation isLoaded={isLoaded} /> */}
@@ -33,15 +30,6 @@ function App() {
           <Route path="/" exact={true}>
             <LandingPage/>
           </Route>
-          <Route>
-            <ErrorCatProtected/>
-          </Route>
-          {/* <Route path="/login" >
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route> */}
           <ProtectedRoute path="/home" exact={true}>
             <Navigation />
             <Notebooks />
