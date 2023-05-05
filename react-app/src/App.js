@@ -13,6 +13,7 @@ import Notes from "./components/Notes/Notes"
 import NoteDetails from "./components/Notes/NoteDetails";
 import NoteDetails2 from "./components/Notes/NoteDetails2";
 import ErrorCat from "./components/404Page/404Page";
+import ScratchPad from "./components/Scratchpad/scratchpad";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function App() {
           </Route>
           <ProtectedRoute path="/home" exact={true}>
             <Navigation />
+            <ScratchPad />
             <Notebooks />
             <Notes/>
           </ProtectedRoute>
